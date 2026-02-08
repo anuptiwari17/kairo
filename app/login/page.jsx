@@ -196,7 +196,7 @@ export default function LoginPage() {
           </div>
           <div className="flex items-center gap-1">
             <Languages size={16} />
-            <span>8+ Languages</span>
+            <span>2 Languages</span>
           </div>
         </div>
       </div>

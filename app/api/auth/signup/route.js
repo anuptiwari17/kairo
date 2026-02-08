@@ -8,7 +8,7 @@ import { createToken, createUserPayload } from '@/lib/auth';
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { name, email, phoneNumber, password, role } = body;
+    const { name, email, phoneNumber, password, role, language } = body;
 
     // Validation
     if (!name || !email || !phoneNumber || !password) {
@@ -40,6 +40,14 @@ export async function POST(request) {
       );
     }
 
+    const normalizedLanguage = language || 'English';
+    if (!['English', 'Hindi'].includes(normalizedLanguage)) {
+      return NextResponse.json(
+        { error: 'Please select a valid language preference' },
+        { status: 400 }
+      );
+    }
+
     // Connect to database
     await connectDB();
 
@@ -67,6 +75,7 @@ export async function POST(request) {
       profile: {
         name,
         role: role || 'citizen', // Default to citizen if not provided
+        language: normalizedLanguage,
       },
     });
 

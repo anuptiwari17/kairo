@@ -23,6 +23,7 @@ export default function SignUpPage() {
     email: '',
     phoneNumber: '',
     role: 'citizen', // Default role
+    language: 'English',
     password: '',
     confirmPassword: '',
   })
@@ -80,6 +81,7 @@ export default function SignUpPage() {
           phoneNumber: formData.phoneNumber,
           password: formData.password,
           role: formData.role,
+          language: formData.language,
         }),
       })
 
@@ -276,6 +278,24 @@ export default function SignUpPage() {
                 </p>
               </div>
 
+              {/* Preferred Language */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Preferred Language
+                </label>
+                <select
+                  value={formData.language}
+                  onChange={(e) => setFormData({...formData, language: e.target.value})}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                >
+                  <option value="English">English</option>
+                  <option value="Hindi">Hindi</option>
+                </select>
+                <p className="mt-1 text-sm text-gray-500">
+                  You can change this anytime in settings
+                </p>
+              </div>
+
               {/* Password */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -453,7 +473,7 @@ export default function SignUpPage() {
             </div>
             <div className="flex items-center gap-1">
               <Languages size={16} />
-              <span>8+ Languages</span>
+              <span>2 Languages</span>
             </div>
           </div>
         )}

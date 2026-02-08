@@ -34,6 +34,43 @@ const userSchema = new mongoose.Schema(
         type: String,
         trim: true,
       },
+      district: {
+        type: String,
+        trim: true,
+      },
+      pincode: {
+        type: String,
+        trim: true,
+        match: [/^\d{6}$/, 'Please enter a valid 6-digit PIN code'],
+      },
+      location: {
+        latitude: {
+          type: Number,
+          min: -90,
+          max: 90,
+        },
+        longitude: {
+          type: Number,
+          min: -180,
+          max: 180,
+        },
+        address: {
+          type: String,
+          trim: true,
+          maxlength: 500,
+        },
+        lastUpdated: {
+          type: Date,
+          default: Date.now,
+        },
+        accuracy: {
+          type: Number, // GPS accuracy in meters
+        },
+        isManuallyEntered: {
+          type: Boolean,
+          default: false,
+        },
+      },
       role: {
         type: String,
         default: 'citizen',
@@ -55,13 +92,48 @@ const userSchema = new mongoose.Schema(
       },
       language: {
         type: String,
+        enum: ['English', 'Hindi'],
         default: 'English',
+      },
+      location: {
+        latitude: {
+          type: Number,
+          min: -90,
+          max: 90,
+        },
+        longitude: {
+          type: Number,
+          min: -180,  
+          max: 180,
+        },
+        address: {
+          type: String,
+          trim: true,
+        },
+        district: {
+          type: String,
+          trim: true,
+        },
+        pincode: {
+          type: String,
+          trim: true,
+        },
+        lastUpdated: {
+          type: Date,
+        },
+        accuracy: {
+          type: Number, // GPS accuracy in meters
+        },
       },
       isPhoneVerified: {
         type: Boolean,
         default: false,
       },
       isEmailVerified: {
+        type: Boolean,
+        default: false,
+      },
+      isLocationEnabled: {
         type: Boolean,
         default: false,
       },

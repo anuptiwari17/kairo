@@ -56,7 +56,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Check size={16} className="text-green-500" />
-                  <span>8+ languages</span>
+                  <span>2 languages</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check size={16} className="text-green-500" />
@@ -122,7 +122,7 @@ export default function Home() {
               <p className="text-gray-600">States Covered</p>
             </div>
             <div className="text-center">
-              <p className="text-4xl font-bold gradient-text mb-2">8+</p>
+              <p className="text-4xl font-bold gradient-text mb-2">2</p>
               <p className="text-gray-600">Languages</p>
             </div>
             <div className="text-center">
@@ -251,9 +251,9 @@ export default function Home() {
               <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
                 <Languages className="text-purple-600" size={28} />
               </div>
-              <h3 className="text-2xl font-display font-bold mb-3">8+ Regional Languages</h3>
+              <h3 className="text-2xl font-display font-bold mb-3">English + Hindi</h3>
               <p className="text-gray-600 mb-4">
-                Complete platform in Hindi, Tamil, Bengali, Marathi, Telugu, Gujarati, Kannada, Malayalam and more.
+                Complete platform in English and Hindi with full translation coverage.
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
@@ -391,7 +391,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">India-First Platform</h4>
-                    <p className="opacity-90">Built for India&#39;s 28 states, regional languages, and local laws - not adapted from global platforms</p>
+                    <p className="opacity-90">Built for India&#39;s 28 states, English and Hindi, and local laws - not adapted from global platforms</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

@@ -18,7 +18,18 @@ export const useAuth = () => {
   const login = (token, userData) => {
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(userData));
+    const rawLanguage = userData?.profile?.language || userData?.language;
+    if (rawLanguage) {
+      const langCode = rawLanguage === 'Hindi' ? 'hi' : 'en';
+      localStorage.setItem('preferredLanguage', langCode);
+    }
     setToken(token);
+    setUser(userData);
+  };
+
+  const updateUser = (userData) => {
+    if (!userData) return;
+    localStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
   };
 
@@ -48,6 +59,7 @@ export const useAuth = () => {
     isLoading,
     isAuthenticated,
     login,
+    updateUser,
     logout,
   };
 };
